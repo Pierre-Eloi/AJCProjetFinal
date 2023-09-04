@@ -24,7 +24,7 @@ const Login = () => {
     event.preventDefault();
     fetch(`https://localhost:44375/api/Clients?email=${email}&password=${password}`)
       .then((res) => res.json())
-      .then(data => setClient(data))
+      .then((data) => setClient(data))
       .then(() => { setCount((c) => c + 1) });
   }
 

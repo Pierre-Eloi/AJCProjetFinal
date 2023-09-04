@@ -3,7 +3,8 @@ export interface IClient {
   Prenom: string;
   Email: string;
   Password: string;
-  Rue: string;
+  Telephone: string;
+  rue: string;
   CodePostal: number;
   Ville: string;
 }

@@ -25,9 +25,9 @@ namespace ProjetFinalRest.Controllers
         }
 
         [HttpGet]
-        public Clients Get(string email)
+        public bool Get(string email)
         {
-            return new DaoClients().FindbyEmail(email);
+            return new DaoClients().CheckEmail(email);
         }
 
         // GET api/<controller>/5

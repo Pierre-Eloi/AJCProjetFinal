@@ -8,17 +8,15 @@ namespace ProjetFinalRest.DAL
 {
     public class DaoClients
     {
-        public Clients FindbyEmail(string email)
+        public bool CheckEmail(string email)
         {
             var context = new ProjetFinalDBEntities();
             var clients = context.Clients.Where(c => c.Email == email);
-            Clients res;
+            var isUsed = false;
 
             if (clients.Count() > 0)
-                res = clients.First();
-            else
-                res = null;
-            return res;
+                isUsed=true;
+            return isUsed;
         }
 
         public Clients FindbyEmailandPassword(string email, string password)

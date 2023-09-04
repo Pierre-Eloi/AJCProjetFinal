@@ -10,6 +10,7 @@ import Accueil from "./components/Accueil";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
+import Sejour from "./components/Sejour";
 
 function App() {
   const showNavBar = window.location.pathname !== "/";
@@ -21,8 +22,6 @@ function App() {
   useEffect(() => {
     sessionStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
-  console.log("something")
-  console.log("something else")
   return (
     <>
       <BrowserRouter>
@@ -38,9 +37,11 @@ function App() {
               <Route path="Article/:id" element={<Article setCart={setCart} />} />
               <Route path="login" element={<Login />} />
               <Route path="signup" element={<SignUp />} />
+              <Route path="Sejour" element={<Sejour setCart={setCart}  />} />
             </Routes>
-            <Footer />
+           
           </body>
+          {showNavBar &&  <Footer />}
         </div>
       </BrowserRouter>
     </>

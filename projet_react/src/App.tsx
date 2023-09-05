@@ -4,7 +4,6 @@ import './App.css';
 import SideBar from "./components/SideBar";
 import LeMain from "./components/LeMain";
 import Liste from "./components/Liste";
-import Article from "./components/Article";
 import NoPage from "./components/NoPage";
 import Accueil from "./components/Accueil";
 import Footer from "./components/Footer";
@@ -15,37 +14,35 @@ import SalleAManger from "./components/SalleAManger";
 import Bureau from "./components/Bureau";
 import Chambre from "./components/Chambre";
 import Panier from "./components/Panier";
+import UserSideBar from "./components/UserSideBar";
+import UserInfo from "./components/UserInfo";
 
 function App() {
   const showNavBar = window.location.pathname !== "/";
   const storedCart = sessionStorage.getItem('cart');
   const initialCart = storedCart ? JSON.parse(storedCart) : [];
   const [cart, setCart] = useState(initialCart || []);
+  const clientJson = sessionStorage.getItem('client');
+  const client = clientJson ? JSON.parse(clientJson) : null;
+  const [isOpen, setIsOpen] = useState(false);
   const [quantity, setQuantity] = useState(0);
 
   useEffect(() => {
     sessionStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
-
-  const updateQuantity = (articleId, quantityToAdd) => {
-    setCart((prevCart) => {
-      const updatedCart = { ...prevCart };
-
-      if (updatedCart.hasOwnProperty(articleId)) {
-        updatedCart[articleId] += quantityToAdd;
-      } else {
-        updatedCart[articleId] = 1;
-      }
-
-      return updatedCart;
-    });
-  };
-  
+ 
   return (
     <>
       <BrowserRouter>
         <div className="App">
           {showNavBar && <SideBar cart={cart} setCart={setCart} />}
+          {client && isOpen &&
+            <UserSideBar
+              nom={client.Nom}
+              prenom={client.Prenom}
+              setIsOpen={setIsOpen}              
+            />
+          }
           <body>
             <Routes>
               <Route path="/" element={<LeMain />} />
@@ -53,14 +50,14 @@ function App() {
               <Route path="Accueil" element={<Accueil />} />
               <Route path="SideBar" element={<SideBar cart={cart} setCart={setCart}  />} />
               <Route path="Liste" element={<Liste setCart={setCart} />} />
-              <Route path="Article/:id" element={<Article setCart={setCart} updateQuantity={updateQuantity} />} />
               <Route path="login" element={<Login />} />
               <Route path="signup" element={<SignUp />} />
               <Route path="Sejour" element={<Sejour setCart={setCart} />} />
               <Route path="Salle" element={<SalleAManger setCart={setCart} />} />
               <Route path="Bureau" element={<Bureau setCart={setCart} />} />
               <Route path="Chambre" element={<Chambre setCart={setCart} />} />
-              <Route path="Panier" element={<Panier cart={cart} setCart={setCart} updateQuantity={updateQuantity} />} />
+              <Route path="Panier" element={<Panier cart={cart} setCart={setCart}/>} />
+              {client && <Route path="userinfo" element={<UserInfo id={client.Id}/>} />}
             </Routes>
            
           </body>

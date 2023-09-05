@@ -1,6 +1,6 @@
 import React, {useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Logo from './image/logo.png';
+import Logo from '../assets/logo.png';
 import { faFacebook, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import './LeMain.css';
 

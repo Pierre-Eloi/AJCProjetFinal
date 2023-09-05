@@ -1,0 +1,60 @@
+/* ---Sidebar css */
+.sd{
+  width: 280px;
+  height: 100%;
+  /* box-shadow: 0px 4px 8px rgb(0 0 0 / 16%); */
+  background-color: #212529;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1500;
+  transition: 0.5s;
+  overflow-x: hidden;
+}
+.sd.active{
+  right: 0;
+}
+
+.sd-header{
+display: flex;
+color: #f8f9fa;
+justify-content: space-between;
+padding: 10px;
+}
+
+.sd-body {
+text-align: left;
+padding: 10px;
+font-size: 15px;
+}
+
+
+.sd h4 {
+padding: 50px 5px 20px 20px;
+}
+
+.sd hr {
+color: #f8f9fa;
+margin: 5px 20px 5px 20px;
+}
+.sd a {
+padding: 15px 5px 15px 20px;
+text-decoration: none;
+font-size: 15px;
+color: #f8f9fa;
+display: block;
+transition: 0.3s;
+}
+
+.sd a:hover {
+color: #adb5bd;
+}
+
+.sd .closebtn {
+position: absolute;
+top: 20px;
+right: 25px;
+font-size: 20px;
+margin-left: 50px;
+cursor: pointer;
+}

@@ -16,7 +16,7 @@ namespace ProjetFinalRest.Controllers
         public IEnumerable<Clients> Get()
         {
             return new DaoClients().FindAll();
-        }
+        }       
 
         [HttpGet]
         public Clients Get(string email, string password)
@@ -28,6 +28,18 @@ namespace ProjetFinalRest.Controllers
         public bool Get(string email)
         {
             return new DaoClients().CheckEmail(email);
+        }
+
+        [HttpGet]
+        public bool Get(string email, int id)
+        {
+            return new DaoClients().CheckEmailV2(email, id);
+        }
+
+        [HttpGet]
+        public bool Get(string password, int id, string email)
+        {
+            return new DaoClients().CheckPassword(password, id);
         }
 
         // GET api/<controller>/5

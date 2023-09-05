@@ -8,6 +8,28 @@ namespace ProjetFinalRest.DAL
 {
     public class DaoClients
     {
+        public bool CheckPassword(string password, int id)
+        {
+            var context = new ProjetFinalDBEntities();
+            var clients = context.Clients.Where(c => c.Password == password && c.Id == id);
+            var isUsed = false;
+
+            if (clients.Count() > 0)
+                isUsed = true;
+            return isUsed;
+        }
+
+        public bool CheckEmailV2(string email, int id)
+        {
+            var context = new ProjetFinalDBEntities();
+            var clients = context.Clients.Where(c => c.Email == email && c.Id != id);
+            var isUsed = false;
+
+            if (clients.Count() > 0)
+                isUsed = true;
+            return isUsed;
+        }
+
         public bool CheckEmail(string email)
         {
             var context = new ProjetFinalDBEntities();

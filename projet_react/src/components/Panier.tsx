@@ -1,21 +1,28 @@
 import React,{ useState, useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus,faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
+import { ICommande } from "./ICommande";
 
 
-const Panier = ({ cart, setCart }) => {
+const Panier = (props) => {
+  const [commande, setCommande] = useState<ICommande>()
+
     const remove = (itemId) => {
-      const updatedCart = cart.filter((item) => item.Id !== itemId);
-      setCart(updatedCart);
+      const updatedCart = props.cart.filter((item) => item.Id !== itemId);
+      props.setCart(updatedCart);
     };
     
     const calculateTotal = () => {
         let total = 0;
-        cart.forEach((cartItem) => {
+        props.cart.forEach((cartItem) => {
           total += cartItem.Prix;
         });
         return total;
       };
+
+    const handleCommande = () => {
+      let idClient = props.client.id
+    }
     
   
     return (
@@ -24,7 +31,7 @@ const Panier = ({ cart, setCart }) => {
           <div className="row">
             <div className="col-md-8">
               <h2>Votre Panier </h2>
-              {cart
+              {props.cart
                 .filter((cartItem,index, self) => {
                     return index === self.findIndex((t) => t.Id === cartItem.Id);
                   })
@@ -45,8 +52,8 @@ const Panier = ({ cart, setCart }) => {
                     <div>
                       <h6>Article: {cartItem.Nom}</h6>
                       <h6>Marque: {cartItem.Marque}</h6>
-                      <h6>Quantité:{cart.filter((item) => item.Id === cartItem.Id).length}</h6>
-                    <h6>Prix: {cartItem.Prix * (cart.filter((item) => item.Id === cartItem.Id).length)} €</h6>
+                      <h6>Quantité:{props.cart.filter((item) => item.Id === cartItem.Id).length}</h6>
+                    <h6>Prix: {cartItem.Prix * (props.cart.filter((item) => item.Id === cartItem.Id).length)} €</h6>
                     </div>
                   </div>
                   <div>
@@ -78,7 +85,7 @@ const Panier = ({ cart, setCart }) => {
               <div className=" card  mt-3 mb-5" style={{backgroundColor:'#F2F4F4'}}>
                 <div className="container-fluid mt-3 mb-5 ml-3" style={{justifyContent:'center'}}>
                 <h4>Récapitulatif de la Commande</h4>
-                {cart
+                {props.cart
                 .filter((cartItem,index, self) => {
                     return index === self.findIndex((t) => t.Id === cartItem.Id);
                   })
@@ -86,7 +93,7 @@ const Panier = ({ cart, setCart }) => {
                   <div className="row" key={cartItem.Id}>
                     <div className="col-md-6">{cartItem.Nom}</div>
                     <div className="col-md-6 text-right">
-                      {cart.filter((item) => item.Id === cartItem.Id).length} x{" "}
+                      {props.cart.filter((item) => item.Id === cartItem.Id).length} x{" "}
                       {cartItem.Prix} €
                     </div>
                   </div>
@@ -102,7 +109,7 @@ const Panier = ({ cart, setCart }) => {
                 
                 <button className="btn btn-dark" >
                     <h6>       Passer commande        </h6>
-                    <h1><FontAwesomeIcon icon={faArrowCircleRight} /> </h1>
+                    <h1><FontAwesomeIcon icon={faArrowCircleRight} onClick={handleCommande}/> </h1>
                 </button>  
                 </div>
                 

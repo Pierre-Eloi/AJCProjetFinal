@@ -161,7 +161,7 @@ const SideBar = (props) => {
             </div>
           )}
           <div className='text-center mb-3'>
-            <a href="/Panier" className="btn" style={{ backgroundColor: 'black', color: 'white', fontWeight: 'bold' }}>Accéder Au Panier</a>
+            <a href="/Panier" className="btn btn-dark">Accéder Au Panier</a>
           </div>
         </Modal.Body>
         <Modal.Footer >

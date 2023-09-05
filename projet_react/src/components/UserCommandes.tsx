@@ -8,7 +8,7 @@ function UserCommandes(props) {
 
   useEffect(() => {
     if (props.id) {
-      fetch(`https://localhost:44375/api/Commandes?idClient=${props.id}&id=`)
+      fetch(`https://localhost:44375/api/Commandes?idClient=${props.id}&id=1`)
         .then((res) => res.json())
         .then(data => setCommandes(data))
     }
@@ -30,7 +30,7 @@ function UserCommandes(props) {
           <tr>
             <td>{commande.Id}</td>
             <td>{commande.Date}</td>
-            <td>{commande.PrixTotal}</td>
+            <td>{commande.PrixTotal}€</td>
             <td><Link to={`/Commande/${commande.Id}`}>Détails</Link></td>
           </tr>
         ))}          

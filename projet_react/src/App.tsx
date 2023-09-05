@@ -30,6 +30,7 @@ function App() {
   const client = clientJson ? JSON.parse(clientJson) : null;
   const [isOpen, setIsOpen] = useState(false);
   const [quantity, setQuantity] = useState(0);
+  
 
   useEffect(() => {
     sessionStorage.setItem('cart', JSON.stringify(cart));
@@ -61,7 +62,7 @@ function App() {
               <Route path="Salle" element={<SalleAManger setCart={setCart} />} />
               <Route path="Bureau" element={<Bureau setCart={setCart} />} />
               <Route path="Chambre" element={<Chambre setCart={setCart} />} />
-              <Route path="Panier" element={<Panier cart={cart} setCart={setCart} client={client} />} />
+              <Route path="Panier" element={<Panier cart={cart} setCart={setCart} id={client.Id} />} />
               {client && <Route path="userinfo" element={<UserInfo id={client.Id} />} />}
               {client && <Route path="usercommandes" element={<UserCommandes id={client.Id} />} />}
               {client && <Route path="commande/:id" element={<Commande id={client.Id} />} />}

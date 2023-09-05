@@ -26,10 +26,10 @@ const SideBar = ({cart, setCart}) => {
       });
    
       const removeFromCart = (indexToRemove) => {
-        const updatedCart = cart.filter((_, index) => index !== indexToRemove);
+        const updatedCart = [...cart]; 
+        updatedCart.splice(indexToRemove, 1); 
         setCart(updatedCart);
-      };    
-  
+      };
       const openModal = () => {
         setShowModal(true);
       };
@@ -152,8 +152,8 @@ const SideBar = ({cart, setCart}) => {
                           <div>
                           <h6>Article: {item.Nom}</h6>
                           <h6>Marque: {item.Marque}</h6>
-                          <h6>Quantité: {item.quantity}</h6>
-                          <h6>Prix: {item.Prix * item.quantity}</h6>
+                          <h6>Quantité: {cart.filter((x) => x.Id === item.Id).length}</h6>
+                          <h6>Prix: {item.Prix * (cart.filter((x) => x.Id === item.Id).length)} €</h6>
                           </div>
                           <a href='#' onClick={() => removeFromCart(index)} > 
                             <FontAwesomeIcon icon={faTimes} style={{ color: 'black', fontSize: '1.2rem', marginLeft: '30px'}} />

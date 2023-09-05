@@ -2,14 +2,17 @@ import React, { useEffect, useState } from 'react';
 import './SideBar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faShoppingCart, faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
-import logo from './image/logo1.png';
+import logo from '../assets/logo1.png';
 import { Navbar, Nav, Container, Modal } from 'react-bootstrap';
 
-const SideBar = ({cart,setCart}) => {
+const SideBar = ({cart, setCart}) => {
   const [showModal, setShowModal] = useState(false);
   const [input, setInput]=useState("");
   const [articles, setArticles]= useState([]);
   const [dropdownVisible, setDropdownVisible] = useState(false);
+
+
+
 
   useEffect(() => {
      fetch('https://localhost:44375/api/Articles').then((res) => res.json()).then(data => setArticles(data));
@@ -27,13 +30,13 @@ const SideBar = ({cart,setCart}) => {
         setCart(updatedCart);
       };    
   
-  const openModal = () => {
-    setShowModal(true);
-  };
+      const openModal = () => {
+        setShowModal(true);
+      };
 
-  const closeModal = () => {
-    setShowModal(false);
-  };
+      const closeModal = () => {
+        setShowModal(false);
+      };
 
   return (
     <div>
@@ -44,10 +47,10 @@ const SideBar = ({cart,setCart}) => {
           <img src={logo} className="logo" alt="Logo" loading="lazy" />
         </Navbar.Brand>
 
-        <Nav className="me-auto centrer">
+        {/* <Nav className="me-auto centrer">
               <Nav.Link href="/Liste" style={{ textDecoration: "none", fontWeight: "bold", color: "white", marginLeft: "10px" }}>Produits</Nav.Link>
-        </Nav>
-        <Nav className=" search-input " style={{marginLeft: '30px'}}>
+        </Nav> */}
+        <Nav className=" search-input" style={{marginLeft: '50px'}}>
         <div  style={{ display: 'flex', alignItems: 'center' }}>
             <FontAwesomeIcon icon={faSearch} style={{ color: 'black', fontSize: '1.1rem', marginLeft: '10px', marginRight: '10px' }} />
             <input
@@ -59,21 +62,21 @@ const SideBar = ({cart,setCart}) => {
               onBlur={() => setDropdownVisible(false)}
             />
         </div>
-    <div className={`drop ${dropdownVisible ? 'visible' : ''}`}>
-    {filtre.map(article => (
-      <ul key={article.Id} className="menu">
-        <li key={article.Id} className="menu-item">
-            <FontAwesomeIcon icon={faSearch} style={{ color: 'black', fontSize: '0.8rem', marginRight: '10px' }} />
-            <a onClick={setDropdownVisible}  style={{ color: 'black', fontWeight:'bolder'}} href={`/Article/${article.Id}`}>{article.Nom}</a>
-        </li>
-      </ul>
-    ))}
-  </div>
-        </Nav>
+              <div className={`drop ${dropdownVisible ? 'visible' : ''}`}>
+              {filtre.map(article => (
+                <ul key={article.Id} className="menu">
+                  <li key={article.Id} className="menu-item">
+                      <FontAwesomeIcon icon={faSearch} style={{ color: 'black', fontSize: '0.8rem', marginRight: '10px' }} />
+                      <a onClick={setDropdownVisible}  style={{ color: 'black', fontWeight:'bolder'}} href={`/Article/${article.Id}`}>{article.Nom}</a>
+                  </li>
+                </ul>
+              ))}
+            </div>
+        </Nav >
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
         
-        <Nav className='centrer'>
+        <Nav >
         <Nav.Link href="#">
         <div
         onClick={openModal}
@@ -89,7 +92,7 @@ const SideBar = ({cart,setCart}) => {
         )}<div className='txt'>Votre Panier </div>
       </div> </Nav.Link>
         </Nav>     
-        <Nav className='centrer'>
+        <Nav >
               <Nav.Link href="/login" >
               <FontAwesomeIcon
                   icon={faUser}
@@ -106,20 +109,20 @@ const SideBar = ({cart,setCart}) => {
 
       <Navbar  style={{height: '30px'}} bg="dark" variant="dark">
       <Nav className="mx-auto">
-        <Nav.Link href="/" className="nav-link-custom"> 
+        <Nav.Link href="/Sejour" className="nav-link-custom"> 
           <p>Séjour </p>
         </Nav.Link>
-    <Nav.Link href="/" className="nav-link-custom">
-       <p>Chambre </p>
-    </Nav.Link>
-    <Nav.Link href="/" className="nav-link-custom">
-       <p>Salle à Manger </p>
-    </Nav.Link>
-    <Nav.Link href="/" className="nav-link-custom">
-     <p>Bureau </p>
-    </Nav.Link>
-  </Nav>
-</Navbar>
+        <Nav.Link href="/Chambre" className="nav-link-custom">
+          <p>Chambre </p>
+        </Nav.Link>
+        <Nav.Link href="/Salle" className="nav-link-custom">
+          <p>Salle à Manger </p>
+        </Nav.Link>
+        <Nav.Link href="/Bureau" className="nav-link-custom">
+        <p>Bureau </p>
+        </Nav.Link>
+      </Nav>
+      </Navbar>
       
       <Modal show={showModal} onHide={closeModal} centered >
           <Modal.Header closeButton>
@@ -135,30 +138,35 @@ const SideBar = ({cart,setCart}) => {
               </div>
             ) : (
         <div className="cart-items">
-          {cart.map((item, index) => (
-            <>
-            <div className=" row"  key={item.Id}>
-              <div className="col-md-6">
-                <img className='mod' src={`/image/`+item.Image} alt="Product" />
-              </div>
-              <div className="col-md-6 justify-content-end" style={{ display: 'flex', alignItems: 'center' }}>
-                <div>
-                <h6 > Article: {item.Nom} </h6>
-                <h6 > Quantité: </h6>
-                <h6> Prix: {item.Prix}</h6>
-                </div>
-                <a  href='#' onClick={() => removeFromCart(index)} >
-                  <FontAwesomeIcon icon={faTimes} style={{ color: 'black', fontSize: '1.2rem', marginLeft: '30px'}} />
-                </a>
-              </div>
-            </div>
-            <hr />
-            </>
-          ))}
-        </div>
-      )}
+         {cart
+          .filter((item,index, self) => {
+                    return index === self.findIndex((t) => t.Id === item.Id);
+                  })
+                  .map((item,index) => (
+                    <>
+                      <div className=" row" key={item.Id}>
+                        <div className="col-md-6">
+                          <img className='mod' src={`../assets/` + item.Image} alt="Product" />
+                        </div>
+                        <div className="col-md-6 justify-content-end" style={{ display: 'flex', alignItems: 'center' }}>
+                          <div>
+                          <h6>Article: {item.Nom}</h6>
+                          <h6>Marque: {item.Marque}</h6>
+                          <h6>Quantité: {item.quantity}</h6>
+                          <h6>Prix: {item.Prix * item.quantity}</h6>
+                          </div>
+                          <a href='#' onClick={() => removeFromCart(index)} > 
+                            <FontAwesomeIcon icon={faTimes} style={{ color: 'black', fontSize: '1.2rem', marginLeft: '30px'}} />
+                          </a>
+                        </div>
+                      </div>
+                      <hr />
+                    </>
+                  ))}
+                      </div>
+                    )}
             <div className='text-center mb-3'>
-              <a href="Acceuil" className="btn" style={{ backgroundColor: 'black', color: 'white', fontWeight: 'bold' }}>Accéder Au Panier</a>
+              <a href="/Panier" className="btn" style={{ backgroundColor: 'black', color: 'white', fontWeight: 'bold' }}>Accéder Au Panier</a>
             </div>
           </Modal.Body>
           <Modal.Footer >

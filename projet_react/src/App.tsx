@@ -17,6 +17,9 @@ import Panier from "./components/Panier";
 import { IArticle } from "./components/IArticle";
 import UserSideBar from "./components/UserSideBar";
 import UserInfo from "./components/UserInfo";
+import Article from "./components/Article";
+import UserCommandes from "./components/UserCommandes";
+import Commande from "./components/Commande";
 
 function App() {
   const showNavBar = window.location.pathname !== "/";
@@ -27,6 +30,7 @@ function App() {
   const client = clientJson ? JSON.parse(clientJson) : null;
   const [isOpen, setIsOpen] = useState(false);
   const [quantity, setQuantity] = useState(0);
+  
 
   useEffect(() => {
     sessionStorage.setItem('cart', JSON.stringify(cart));
@@ -36,12 +40,12 @@ function App() {
     <>
       <BrowserRouter>
         <div className="App">
-          {showNavBar && <SideBar cart={cart} setCart={setCart} />}
+          {showNavBar && <SideBar cart={cart} setCart={setCart} client={client} setIsOpen={setIsOpen} />}
           {client && isOpen &&
             <UserSideBar
               nom={client.Nom}
               prenom={client.Prenom}
-              setIsOpen={setIsOpen}              
+              setIsOpen={setIsOpen}
             />
           }
           <body>
@@ -49,17 +53,20 @@ function App() {
               <Route path="/" element={<LeMain />} />
               <Route path="*" element={<NoPage />} />
               <Route path="Accueil" element={<Accueil />} />
-              <Route path="SideBar" element={<SideBar cart={cart} setCart={setCart}  />} />
+              {/* <Route path="SideBar" element={<SideBar cart={cart} setCart={setCart}  />} /> */}
               <Route path="Liste" element={<Liste setCart={setCart} />} />
-              <Route path="Article/:id" element={<Article cart={cart} setCart={setCart}  />} />
+              <Route path="Article/:id" element={<Article cart={cart} setCart={setCart} />} />
               <Route path="login" element={<Login />} />
               <Route path="signup" element={<SignUp />} />
               <Route path="Sejour" element={<Sejour setCart={setCart} />} />
               <Route path="Salle" element={<SalleAManger setCart={setCart} />} />
               <Route path="Bureau" element={<Bureau setCart={setCart} />} />
               <Route path="Chambre" element={<Chambre setCart={setCart} />} />
-              <Route path="Panier" element={<Panier cart={cart} setCart={setCart} />} />
+              <Route path="Panier" element={<Panier cart={cart} setCart={setCart} id={client.Id} />} />
               {client && <Route path="userinfo" element={<UserInfo id={client.Id} />} />}
+              {client && <Route path="usercommandes" element={<UserCommandes id={client.Id} />} />}
+              {client && <Route path="commande/:id" element={<Commande id={client.Id} />} />}
+              
             </Routes>
            
           </body>

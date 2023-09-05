@@ -3,6 +3,10 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Entity Config -- Added by Pierre
+".\SolutionProjetFinal\ProjetFinalRest\Web.config"
+".\SolutionProjetFinal\ProjetFinalRest\DAL\Model1*"
+
 # User-specific files
 *.rsuser
 *.suo

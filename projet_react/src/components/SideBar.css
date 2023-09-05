@@ -1,0 +1,144 @@
+
+.nav-link-custom {
+  color: white;
+  margin: 0 10px 0;
+  position: relative;
+}
+
+p {
+  font-size: 12px;
+}
+
+.nav-link-custom:hover {
+  color: white;
+  font-weight: bold;
+  border-top: 2px solid white;
+}
+.txt{
+  font-weight: bold;
+  margin-left: 10px;
+  color: white;
+  display: none;
+}
+  .compt{
+    position: absolute;
+    top: -10px;
+    right: -13px;
+    background-color: #F1C40F;
+    color: black;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+  
+  .search-input {
+    display: flex;
+    position: relative;
+    background-color: white;
+    width: 90%; 
+    border-radius: 10px;
+    padding: 10px 10px;
+    right: 13px;
+    box-shadow: 0px 0px 3px #ddd;
+    align-items: center;
+    z-index: 1000;
+    min-height: 30px;
+  }
+  
+  .mod{
+    max-width:80%;
+    height: 80%;
+  }
+  .drop{
+      background-color:white;
+      width:100%;
+      position: absolute;
+      top: 100%;
+      left: 0%;
+      border-radius: 10px;
+      z-Index: 1000;
+      overflow-y: scroll;
+      max-height: 300px;
+  }
+  .inp{
+    background-color: transparent;
+    border:none;
+    height: 70%;
+    font-size: 1.1rem;
+    width: 100%;
+    outline: none;
+  }
+
+  .menu:hover{
+    background-color: aliceblue;
+}
+  .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menu-item {
+    padding: 8px;
+    cursor: pointer;
+    font-weight: 200
+  }
+  .menu-item button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: inherit;
+  }
+
+  .img {
+    height: 150px;
+    width: 185px;
+    }
+  .img:hover {
+    transform: scale(1.1);
+    }
+    
+  .logo {
+    width: 45px;
+    height: auto;
+    }
+  
+
+
+
+  
+  @media (max-width: 768px) {
+    .compt{
+      left: 17px;
+    }
+    .search-input {
+      width: 50%;
+    }
+    .nav-link-custom {
+      font-size: 12px; 
+      margin: 0 5px;
+    }
+    .centrer{
+      justify-content: center;
+      align-items: center;
+    }
+    .txt {
+      display: inline;
+    }
+    
+    .img {
+      height: 150px;
+      width: 150px;
+      }
+    .mod{
+        max-width:60%;
+        height: 60%;
+      }  
+  }
+  

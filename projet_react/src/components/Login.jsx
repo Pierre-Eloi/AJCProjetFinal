@@ -11,10 +11,11 @@ const Login = () => {
   
   useEffect(() => {   
     if (client) {
+      sessionStorage.setItem('client', JSON.stringify(client));
       navigate("/Accueil");
     }
     else if (count > 0) {
-      setResult(`Email ou mot de passe incorrect, veuillez réessayer (${count})`);
+      setResult("Email ou mot de passe incorrect, veuillez réessayer");
       setEmail("");
       setPassword("");
     }

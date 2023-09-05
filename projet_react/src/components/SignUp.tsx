@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { IClient } from "./IClient";
-import logo from "./image/logo1.png";
+import logo from "../assets/logo1.png";
 import { Modal } from 'react-bootstrap';
 
 

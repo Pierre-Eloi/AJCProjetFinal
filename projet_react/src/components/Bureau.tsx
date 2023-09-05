@@ -59,7 +59,7 @@ const Bureau = ({ setCart }) => {
                             <h6> Marque: {article.Marque}</h6>
                         <h5>{article.Prix}€</h5>
                         <div className="cart-circle">
-                            <a  href ='#' onClick={() => addToCart(article)} className="cart-icon">
+                            <a  onClick={() => addToCart(article)} className="cart-icon">
                                 <FontAwesomeIcon icon={faCartPlus} />
                             </a>
                         </div>

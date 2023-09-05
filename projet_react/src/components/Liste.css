@@ -1,7 +1,8 @@
 .article-grid {
-    margin-top: 8px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 @media (max-width: 768px) {
@@ -28,10 +29,12 @@
 
 .cart-icon {
     color: white;
+    cursor: pointer;
 }
 
 
 .article-card {
+    margin-right: 10px;
     border: 1px solid #ddd;
     text-align: center;
     overflow: hidden;
@@ -39,7 +42,7 @@
 }
 
 .article-card:hover {
-    transform: scale(1.1);
+    filter: brightness(0.9);
 }
 
 .image-container {
@@ -59,14 +62,9 @@
 .card-title,
 h5,
 h6 {
-    padding: 8px;
+padding: 3px;
 }
 
-p {
-    padding: 8px;
-    font-size: 8px;
-    font-style: italic; 
-}
 .view-product {
     font-weight: bold;
     align-items: center;
@@ -83,3 +81,4 @@ p {
 .arrow {
     font-size: 18px;
 }
+

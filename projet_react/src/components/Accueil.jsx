@@ -1,14 +1,14 @@
 import React from 'react';
-import Car1 from './image/1.jpg';
-import Car2 from './image/2.jpg';
-import Car3 from './image/3.jpg';
-import Car4 from './image/4.jpg';
-import v1 from './image/v1.mp4';
-import v2 from './image/v2.mp4';
-import pic1 from './image/c4.jpg';
-import pic2 from './image/c3.jpg';
-import pic3 from './image/c1.jpg';
-import pic4 from './image/c2.jpg';
+import Car1 from '../assets/1.jpg';
+import Car2 from '../assets/2.jpg';
+import Car3 from '../assets/3.jpg';
+import Car4 from '../assets/4.jpg';
+import v1 from '../assets/v1.mp4';
+import v2 from '../assets/v2.mp4';
+import pic1 from '../assets/c4.jpg';
+import pic2 from '../assets/c3.jpg';
+import pic3 from '../assets/c1.jpg';
+import pic4 from '../assets/c2.jpg';
 import './Accueil.css';
 import { Link } from 'react-router-dom';
 import { Carousel } from 'react-bootstrap';
@@ -47,7 +47,7 @@ const Accueil = () => {
     </Link>
   </div>
   <div className="hov col-md-2 mb-4">
-    <Link to='Chambre' className="card h-100 d-flex flex-column align-items-center text-center">
+    <Link to='/Chambre' className="card h-100 d-flex flex-column align-items-center text-center">
       <img className="card-img-top rounded h-100" src={pic4} alt="Chambre" style={{ objectFit: 'cover' }} />
       <div className="card-img-overlay justify-content-center">
         <h5 className="text-white">Chambre</h5>
@@ -55,7 +55,7 @@ const Accueil = () => {
     </Link>
   </div>
   <div className="hov col-md-2 mb-4">
-    <Link to='Salle-a-Manger' className="card h-100 d-flex flex-column align-items-center text-center">
+    <Link to='/Salle' className="card h-100 d-flex flex-column align-items-center text-center">
       <img className="card-img-top rounded h-100" src={pic2} alt="Salle à Manger" style={{ objectFit: 'cover' }} />
       <div className="card-img-overlay justify-content-center">
         <h5 className="text-white">Salle à Manger</h5>
@@ -63,7 +63,7 @@ const Accueil = () => {
     </Link>
   </div>
   <div className="hov col-md-2 mb-4">
-    <Link to='Decoration' className="card h-100 d-flex flex-column align-items-center text-center">
+    <Link to='/Bureau' className="card h-100 d-flex flex-column align-items-center text-center">
       <img className="card-img-top rounded h-100" src={pic3} alt="Décoration" style={{ objectFit: 'cover' }} />
       <div className="card-img-overlay justify-content-center">
         <h5 className="text-white">Bureau</h5>

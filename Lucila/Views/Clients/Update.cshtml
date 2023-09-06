@@ -1,0 +1,24 @@
+﻿@model ProjetFinalMVC.DAL.Clients
+
+
+
+<h2>Update</h2>
+
+<form method="post" action="/Clients/ConfirmUpdate">
+    <label>Id</label><input type="text" name="id" value=@Model.Id readonly/><br />
+    <label>Nom</label><input type="text" name="nom" value=@Model.Nom /><br />
+    <label>Prenom</label><input type="text" name="prenom" value=@Model.Prenom /><br />
+    <label>Email</label><input type="email" name="email" value=@Model.Email /><br />
+    <label>Password</label><input type="password" name="password" value=@Model.Password /><br />
+    <label>Telephone</label><input type="text" name="telephone" value=@Model.Telephone /><br />
+    <label>Rue</label><input type="text" name="rue" value=@Model.Rue /><br />
+    <label>CodePostal</label><input type="text" name="codepostal" value=@Model.CodePostal /><br />
+    <label>Ville</label><input type="text" name="ville" value=@Model.Ville /><br />
+    <button id="btnOk" type="submit">Update</button>
+</form>
+
+
+
+
+
+

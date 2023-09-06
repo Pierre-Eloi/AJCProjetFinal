@@ -1,0 +1,17 @@
+﻿@model ProjetFinalMVC.DAL.Articles
+
+
+<h2>Update</h2>
+
+<form method="post" action="/Articles/ConfirmUpdate">
+    <label>Id</label><input type="text" name="id" value=@Model.Id readonly/><br />
+    <label>Nom</label><input type="text" name="nom" value=@Model.Nom /><br />
+    <label>Marque</label><input type="text" name="marque" value=@Model.Marque /><br />
+    <label>Prix</label><input type="text" name="prix" value=@Model.Prix /><br />
+    <label>Categorie</label><input type="text" name="categorie" value=@Model.Categorie /><br />
+    <label>SousCategorie</label><input type="text" name="souscategorie" value=@Model.SousCategorie /><br />
+    <label>Description</label><input type="text" name="description" value=@Model.Description /><br />
+    <label>Couleur</label><input type="text" name="couleur" value=@Model.Couleur /><br />
+    <label>Image</label><input type="text" name="image" value=@Model.Image /><br />
+    <button id="btnOk" type="submit">Update</button>
+</form>

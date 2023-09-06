@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+
+<div class="container mt-3">
+    <h2>Create</h2>
+    <form method="post" action="/Clients/ConfirmCreate">
+        
+        <div class="form-floating mt-3 mb-3">
+            <label for="Nom">Nom</label><input type="text" class="form-control" id="Nom" placeholder="Entre nom" name="nom">
+        </div><br>
+        <div class="form-floating mt-3 mb-3">
+            <label for="Prenom">Prenom</label><input type="text" class="form-control" id="Prenom" placeholder="Entre prenom" name="prenom">
+        </div><br>
+        <div class="form-floating mt-3 mb-3">
+            <label for="Email">Email</label><input type="email" class="form-control" id="Email" placeholder="Entre email" name="email">
+        </div><br>
+        <div class="form-floating mt-3 mb-3">
+            <label for="Password">Password</label><input type="password" class="form-control" id="Password" placeholder="Entre password" name="password">
+        </div><br>
+        <div class="form-floating mt-3 mb-3">
+            <label for="Telephone">Telephone</label><input type="text" class="form-control" id="Telephone" placeholder="Entre telephone" name="telephone">
+        </div><br>
+        <div class="form-floating mt-3 mb-3">
+            <label for="Rue">Rue</label><input type="text" class="form-control" id="Rue" placeholder="Entre rue" name="rue">
+        </div><br>
+        <div class="form-floating mt-3 mb-3">
+            <label for="CodePostal">CodePostal</label><input type="text" class="form-control" id="CodePostal" placeholder="Entre codePostal" name="codepostal">
+        </div><br>
+        <div class="form-floating mt-3 mb-3">
+            <label for="Ville">Ville</label><input type="text" class="form-control" id="Ville" placeholder="Entre ville" name="ville">
+        </div><br>
+        <button id="btnOk" type="submit">Insert</button>
+    </form>
+</div>

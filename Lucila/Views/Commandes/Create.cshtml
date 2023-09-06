@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+
+<div class="container mt-3">
+    <h2>Create</h2>
+    <form method="post" action="/Commandes/ConfirmCreate">
+        <div class="form-floating mb-3 mt-3">
+            <label for="Id">Id</label><input type="text" class="form-control" id="Id" placeholder="Entre Id" name="id">
+        </div> <br>
+        <div class="form-floating mt-3 mb-3">
+            <label for="IdClient">IdClient</label><input type="text" class="form-control" id="IdClient" placeholder="Entre idClient" name="idclient">
+        </div><br>
+        <div class="form-floating mt-3 mb-3">
+            <label for="Date">Date</label><input type="text" class="form-control" id="Date" placeholder="Entre date" name="date">
+        </div><br>
+        <div class="form-floating mt-3 mb-3">
+            <label for="Detail">Detail</label><input type="text" class="form-control" id="Detail" placeholder="Entre detail" name="detail">
+        </div><br>
+        <div class="form-floating mt-3 mb-3">
+            <label for="PrixTotal">PrixTotal</label><input type="text" class="form-control" id="Souscategorie" placeholder="Entre prixtotal" name="prixtotal">
+        </div><br>
+        <button id="btnOk" type="submit">Insert</button>
+    </form>
+</div>
+

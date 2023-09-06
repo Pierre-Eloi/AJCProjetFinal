@@ -1,0 +1,15 @@
+﻿@model ProjetFinalMVC.DAL.Commandes
+
+
+<h2>Update</h2>
+
+<form method="post" action="/Commandes/ConfirmUpdate">
+    <label>Id</label><input type="text" name="Id" value=@Model.Id readonly /><br />
+    <label>IdClient</label><input type="text" name="idclient" value=@Model.IdClient  /><br />
+    <label>Date</label><input type="text" name="date" value=@Model.Date /><br />
+    <label>Detail</label><input type="text" name="detail" value=@Model.Detail /><br />
+    <label>PrixTotal</label><input type="text" name="prixtotal" value=@Model.PrixTotal /><br />
+    <button id="btnOk" type="submit">Update</button>
+</form>
+
+

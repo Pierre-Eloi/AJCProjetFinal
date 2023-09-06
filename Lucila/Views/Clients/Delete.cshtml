@@ -1,0 +1,51 @@
+﻿@model ProjetFinalMVC.DAL.Clients
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+<h2>Delete</h2>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #DDD;
+    }
+
+    tr:hover {
+        background-color: #D6EEEE;
+    }
+</style>
+<table>
+    <tr>
+        <th>id</th>
+        <th>nom</th>
+        <th>prenom</th>
+        <th>email</th>
+        <th>password</th>
+        <th>telephone</th>
+        <th>rue</th>
+        <th>codepostal</th>
+        <th>ville</th>
+    </tr>
+
+    
+    <tr>
+        <td>@Model.Id</td>
+        <td>@Model.Nom</td>
+        <td>@Model.Prenom</td>
+        <td>@Model.Email</td>
+        <td>@Model.Password</td>
+        <td>@Model.Telephone</td>
+        <td>@Model.Rue</td>
+        <td>@Model.CodePostal</td>
+        <td>@Model.Ville</td>
+    </tr>
+    
+
+</table>

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ProjetFinalMVC.DAL.Clients>
+@{
+    ViewBag.Title = "FindAll";
+}
+
+<h2>FindAll</h2>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #DDD;
+    }
+
+    tr:hover {
+        background-color: #D6EEEE;
+    }
+</style>
+<table>
+    <tr>
+        <th>id</th>
+        <th>nom</th>
+        <th>prenom</th>
+        <th>email</th>
+        <th>password</th>
+        <th>telephone</th>
+        <th>rue</th>
+        <th>codepostal</th>
+        <th>ville</th>
+    </tr>
+    @foreach (var x in @Model)
+    {
+        <tr>
+            <td>@x.Id</td>
+            <td>@x.Nom</td>
+            <td>@x.Prenom</td>
+            <td>@x.Email</td>
+            <td>@x.Password</td>
+            <td>@x.Telephone</td>
+            <td>@x.Rue</td>
+            <td>@x.CodePostal</td>
+            <td>@x.Ville</td>
+        </tr>
+    }
+
+</table>

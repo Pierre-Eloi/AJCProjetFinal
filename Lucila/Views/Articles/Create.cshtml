@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+
+<div class="container mt-3">
+    <h2>Create</h2>
+    <form method="post" action="/Articles/ConfirmCreate">
+        <div class="form-floating mb-3 mt-3">
+            <label for="Id">Id</label><input type="text" class="form-control" id="Id" placeholder="Entre Id" name="id">
+        </div> <br>
+        <div class="form-floating mt-3 mb-3">
+            <label for="Marque">Marque</label><input type="text" class="form-control" id="Marque" placeholder="Entre marque" name="marque">
+        </div><br>
+        <div class="form-floating mt-3 mb-3">
+            <label for="Prix">Prix</label><input type="text" class="form-control" id="Prix" placeholder="Entre prix" name="prix">
+        </div><br>
+        <div class="form-floating mt-3 mb-3">
+            <label for="Categorie">Categorie</label><input type="text" class="form-control" id="Categorie" placeholder="Entre categorie" name="categorie">
+        </div><br>
+        <div class="form-floating mt-3 mb-3">
+            <label for="Souscategorie">Souscategorie</label><input type="text" class="form-control" id="Souscategorie" placeholder="Entre souscategorie" name="souscategorie">
+        </div><br>
+        <div class="form-floating mt-3 mb-3">
+            <label for="Description">Description</label><input type="text" class="form-control" id="Description" placeholder="Entre description" name="description">
+        </div><br>
+        <div class="form-floating mt-3 mb-3">
+            <label for="Couleur">Couleur</label><input type="text" class="form-control" id="Couleur" placeholder="Entre couleur" name="couleur">
+        </div><br>
+        <div class="form-floating mt-3 mb-3">
+            <label for="Image">Image</label><input type="text" class="form-control" id="Image" placeholder="Entre image" name="image">
+        </div><br>
+        <button id="btnOk" type="submit">Insert</button>
+    </form>
+</div>
+
+
+
+

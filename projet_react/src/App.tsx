@@ -62,10 +62,10 @@ function App() {
               <Route path="Salle" element={<SalleAManger setCart={setCart} />} />
               <Route path="Bureau" element={<Bureau setCart={setCart} />} />
               <Route path="Chambre" element={<Chambre setCart={setCart} />} />
-              <Route path="Panier" element={<Panier cart={cart} setCart={setCart} id={client.Id} />} />
+              <Route path="Panier" element={<Panier cart={cart} setCart={setCart} client={client} />} />
               {client && <Route path="userinfo" element={<UserInfo id={client.Id} />} />}
               {client && <Route path="usercommandes" element={<UserCommandes id={client.Id} />} />}
-              {client && <Route path="commande/:id" element={<Commande id={client.Id} />} />}
+              {/* {client && <Route path="commande/:id" element={<Commande id={client.Id} />} />} */}
               
             </Routes>
            

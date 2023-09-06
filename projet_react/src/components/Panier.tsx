@@ -15,9 +15,9 @@ const Panier = (props) => {
   const [isConnected, setIsConnected] = useState(false);
 
   useEffect(() => {
-    if(props.id) {
+    if(props.client) {
       setIsConnected(true);
-      setCommande(c => ({...c, IdClient: props.id}))
+      setCommande(c => ({...c, IdClient: props.client.Id}))
       let today = new Date();
       let day = today.getDate();
       let month = today.getMonth() + 1;
@@ -190,7 +190,7 @@ const Panier = (props) => {
         </Modal.Header>
         <Modal.Body >
           <div className="text-center mb-3">
-            Vous devez vous connecter pour valider la commande ?
+            Vous devez vous connecter pour valider la commande !
           </div>
         </Modal.Body>
         <Modal.Footer >

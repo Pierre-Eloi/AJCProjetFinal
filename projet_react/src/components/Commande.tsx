@@ -42,9 +42,9 @@ function Commande(props) {
                   <td>{article.Id}</td>
                   <td>{article.Nom}</td>
                   <td>{article.Marque}</td>
-                  <td>{article.Prix}</td>
+                  <td>{article.Prix}€</td>
                   <td>{article.Quantite}</td>
-                  <td>{article.Total}</td>
+                  <td>{article.Prix * article.Quantite}€</td>
                 </tr>
               ))}
             </tbody>

@@ -4,7 +4,7 @@ export interface IClient {
   Email: string;
   Password: string;
   Telephone: string;
-  rue: string;
+  Rue: string;
   CodePostal: number;
   Ville: string;
 }

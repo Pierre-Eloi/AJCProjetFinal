@@ -2,10 +2,12 @@
 export interface IArticle {
     Id: number;
     Nom:string;
-    Description: string;
-    Couleur: string;
+    Marque:string;
+    Prix: number;
     Categorie: string;
-    Prix: number | null;
-    Quantite: number | null;
+    SousCategorie: string; 
+    Description: string;
+    Couleur: string;       
+    Quantite: number;
     Image: string;
 }

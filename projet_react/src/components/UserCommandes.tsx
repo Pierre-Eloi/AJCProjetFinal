@@ -22,7 +22,7 @@ function UserCommandes(props) {
             <th>Référence de commande</th>
             <th>Date</th>
             <th>Prix total</th>
-            <th>Détail</th>
+            {/* <th>Détail</th> */}
           </tr>
         </thead>
         <tbody>
@@ -31,7 +31,7 @@ function UserCommandes(props) {
             <td>{commande.Id}</td>
             <td>{commande.Date}</td>
             <td>{commande.PrixTotal}€</td>
-            <td><Link to={`/Commande/${commande.Id}`}>Détails</Link></td>
+            {/* <td><Link to={`/Commande/${commande.Id}`}>Détails</Link></td> */}
           </tr>
         ))}          
         </tbody>

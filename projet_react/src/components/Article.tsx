@@ -17,9 +17,11 @@ const Article = ({ cart, setCart }) => {
   };
  
   const addToCart = () => {
-    if (article && quantity > 0) { 
-      const articleToAdd = { ...article, Quantite: quantity }; 
-      setCart((prevCart) => [...prevCart, articleToAdd]);
+    if (article && quantity > 0) {
+      for (let i = 0; i < quantity; i++) {
+        const articleToAdd = { ...article, quantity: 1 }; // Set quantity to 1 for each item
+        setCart((prevCart) => [...prevCart, articleToAdd]);
+      }
       setQuantity(0);
     }
   };

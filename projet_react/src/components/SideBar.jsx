@@ -44,10 +44,6 @@ const SideBar = (props) => {
           <Navbar.Brand href="/Accueil">
             <img src={logo} className="logo" alt="Logo" loading="lazy" />
           </Navbar.Brand>
-
-          {/* <Nav className="me-auto centrer">
-              <Nav.Link href="/Liste" style={{ textDecoration: "none", fontWeight: "bold", color: "white", marginLeft: "10px" }}>Produits</Nav.Link>
-        </Nav> */}
           <Nav className=" search-input" style={{ marginLeft: '50px' }}>
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <FontAwesomeIcon icon={faSearch} style={{ color: 'black', fontSize: '1.1rem', marginLeft: '10px', marginRight: '10px' }} />
@@ -60,7 +56,7 @@ const SideBar = (props) => {
                 onBlur={() => setDropdownVisible(false)}
               />
             </div>
-            <div className={`drop ${dropdownVisible ? 'visible' : ''}`}>
+            <div className={`text-start drop ${dropdownVisible ? 'visible' : ''}`}>
               {filtre.map(article => (
                 <ul key={article.Id} className="menu">
                   <li key={article.Id} className="menu-item">

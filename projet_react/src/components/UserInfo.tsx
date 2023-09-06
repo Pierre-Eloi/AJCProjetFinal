@@ -12,7 +12,7 @@ function UserInfo(props) {
   const [isValid, setIsValid] = useState();
   const [isDisabled, setIsDisabled] = useState(true);
   const [emailMessage, setEmailMessage] = useState("");
-  const [pwdMessage, setPwdMessage] = useState("Pour modifier vos informations personnelles, veuillez rentrer votre mot de passe actuel");
+  const [pwdMessage, setPwdMessage] = useState(`\nPour modifier vos informations personnelles, veuillez rentrer votre mot de passe actuel`);
   const [isformsubmit, setIsFormSubmit] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
@@ -120,6 +120,9 @@ function UserInfo(props) {
                 name="Password"
                 onChange={(event) => handlePassword(event)}
               />
+              <div className="text-danger">
+                <b>{pwdMessage}</b>
+              </div>
               <label className="form-label mt-3">Nouveau mot de passe</label>
               <input
                 type="password"
@@ -168,10 +171,7 @@ function UserInfo(props) {
                   onClick={() => setShowModal(true)}
                 />
               </div>
-            </form>
-            <div className="text-danger">
-              <b>{pwdMessage}</b>
-            </div>
+            </form>            
           </div>
         </div>
       </div>
